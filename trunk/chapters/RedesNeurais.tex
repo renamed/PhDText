@@ -5,11 +5,19 @@ Redes Neurais Artificiais (RNAs) são modelos computacionais de comprovado poder
 
 \section{Breve Histórico das RNAs}
 
-Em geral, livros creditam o pontapé inicial no estudo das RNAs ao trabalho de~\cite{McCulloch1943}, em que uma máquina foi construida inspirada no funcionamento do cérebro humano, fazendo um paralelo entre células nervosas vivas e o processo eletrônico. As conclusões dessa pesquisa foram de extrema importância para a futura implementação computacional do neurônio formal, são elas:
-\begin{itemize}
-	\item A atividade do neurônio é \emph{tudo ou nada}
-	\item A atividade de qualquer sinapse inibitória previne a excitação do neurônio naquele instante.
-\end{itemize}
+Credita-se o pontapé inicial no estudo das RNAs ao trabalho de Walter Pitts e Warren McCulloch em 1943~\cite{McCulloch1943}. Nele, uma máquina foi construida inspirada no funcionamento do cérebro humano, fazendo um paralelo entre células nervosas vivas e o processo eletrônico. As principais conclusões dessa pesquisa foram que (1) a atividade do neurônio é \emph{tudo ou nada}. De acordo com~\cite{Cardon1994}, isso significa que o neurônio estará no estado ativado se a sua saída ultrapassar um valor limite, caso contrário, ficará no estado de repouso (este princípio originou a função limiar). Entende-se por estado ativado transmitir a saída (transmissão) a outros neurônios da rede. (2) A atividade de qualquer sinapse inibitória previne a excitação do neurônio naquele instante. Essa conclusão teve importância na construção do neurônio formal a partir do conceito de pesos.
 
-De acordo com~\cite{Cardon1994}, a primeira afirmação significa que o neurônio estará no estado ativado se a sua saída ultrapassar um valor limite, caso contrário, ficará no estado de repouso (este princípio originou a função limiar). Entende-se por estado ativado transmitir a saída (transmissão) a outros neurônios da rede. Já a segunda afirmação teve importância na construção do neurônio formal a partir do conceito de pesos.
+Em 1949, o psicólogo canadense Donald Hebb publicou o livro~\emph{The Organization of Behavior}~\cite{Hebb1949}. Este trabalho rendeu a Hebb a décima nona colocação na lista dos psicólogos mais eminentes do século XX~\cite{Haggbloom2002}. Heeb descreveu como ligações entre neurônios são criadas, ou fortalecidas, sempre que reflexos cognitivos acontecem através do aprendizado. O trabalho de Heeb definiu o conceito de atualização de pesos sinápticos e deixou com seu estudo quatro pontos importantes~\cite{Eberhart19909}. (1) em uma RNA a informação é armazenada nos pesos; (2) o coeficiente de aprendizagem é proporcional ao produto dos valores de ativação do neurônio; (3) os pesos são simétricos (o peso de conexão entre A e B é o mesmo de B para A); (4) quando ocorre aprendizado os pesos são alterados.
+
+Em 1958 Frank Rosenblatt apresentou o Perceptron, o primeiro modelo de rede neural até então implementado. O Perceptron era uma rede neural simples, possuía uma camada de entrada e uma de saída. A camada de entrada recebia $N$ estímulos, cada estímulo $e_i$ era associado a um peso $p_i$, onde $0 \leq i < N$. Todos os estímulos eram multiplicados com seus respectivos pesos e somados, calculando o produto interno entre o estímulo de entrada e seu respectivo peso. Somava-se uma constante $b$ representando a inclinação da reta e, caso esse resultado fosse maior ou igual a zero, o neurônio respondia com o valor $1$, indicando que ele estava ativado. Caso contrário, respondia com zero, indicando não estar ativado. Essa função ficou conhecida como limiar ou degrau, e reproduz a conclusão do trabalho de Pitts de que a atividade de um neurônio é tudo ou nada.
+
+\begin{equation}
+    f(x)=\left\{
+    \begin{array}{c l}	
+         1 & \text{se }p . e + b \geq 0 \\
+         0 & \text{caso contrário}
+    \end{array}\right. 
+\end{equation}
+
+Em 1969 Marvin Minsky e Seymour Papert publicaram o livro~\emph{Perceptrons: an introduction to computational geometry}, em que descreviam diversas provas matemáticas mostrando limitações do Perceptron até então desconhecidas. A principal foi a incapacidade do Perceptron de encontrar a solução para o predicado XOR, uma vez que ele não é~\emph{linearmente separável}.  O livro de Minsky inaugurou um período conhecido como~\emph{AI winter} em que financiamento, interesse e publicações na área terminaram abruptamente.
 
