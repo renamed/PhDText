@@ -5,19 +5,94 @@ Redes Neurais Artificiais (RNAs) são modelos computacionais de comprovado poder
 
 \section{Breve Histórico das RNAs}
 
-Credita-se o pontapé inicial no estudo das RNAs ao trabalho de Walter Pitts e Warren McCulloch em 1943~\cite{McCulloch1943}. Nele, uma máquina foi construida inspirada no funcionamento do cérebro humano, fazendo um paralelo entre células nervosas vivas e o processo eletrônico. As principais conclusões dessa pesquisa foram que (1) a atividade do neurônio é \emph{tudo ou nada}. De acordo com~\cite{Cardon1994}, isso significa que o neurônio estará no estado ativado se a sua saída ultrapassar um valor limite, caso contrário, ficará no estado de repouso (este princípio originou a função limiar). Entende-se por estado ativado transmitir a saída (transmissão) a outros neurônios da rede. (2) A atividade de qualquer sinapse inibitória previne a excitação do neurônio naquele instante. Essa conclusão teve importância na construção do neurônio formal a partir do conceito de pesos.
+Credita-se o pontapé inicial no estudo das RNAs ao trabalho de Walter Pitts e Warren McCulloch em 1943~\citep{McCulloch1943}. Nele, uma máquina foi construida inspirada no funcionamento do cérebro humano, fazendo um paralelo entre células nervosas vivas e o processo eletrônico. As principais conclusões dessa pesquisa foram que (1) a atividade do neurônio é \emph{tudo ou nada}. De acordo com~\citep{Cardon1994}, isso significa que o neurônio estará no estado ativado se a sua saída ultrapassar um valor limite, caso contrário, ficará no estado de repouso (este princípio originou a função limiar). Entende-se por estado ativado transmitir a saída (transmissão) a outros neurônios da rede. (2) A atividade de qualquer sinapse inibitória previne a excitação do neurônio naquele instante. Essa conclusão teve importância na construção do neurônio formal a partir do conceito de pesos.
 
-Em 1949, o psicólogo canadense Donald Hebb publicou o livro~\emph{The Organization of Behavior}~\cite{Hebb1949}. Este trabalho rendeu a Hebb a décima nona colocação na lista dos psicólogos mais eminentes do século XX~\cite{Haggbloom2002}. Heeb descreveu como ligações entre neurônios são criadas, ou fortalecidas, sempre que reflexos cognitivos acontecem através do aprendizado. O trabalho de Heeb definiu o conceito de atualização de pesos sinápticos e deixou com seu estudo quatro pontos importantes~\cite{Eberhart19909}. (1) em uma RNA a informação é armazenada nos pesos; (2) o coeficiente de aprendizagem é proporcional ao produto dos valores de ativação do neurônio; (3) os pesos são simétricos (o peso de conexão entre A e B é o mesmo de B para A); (4) quando ocorre aprendizado os pesos são alterados.
+Em 1949, o psicólogo canadense Donald Hebb publicou o livro~\emph{The Organization of Behavior}~\citep{Hebb1949}. Este trabalho rendeu a Hebb a décima nona colocação na lista dos psicólogos mais eminentes do século XX~\citep{Haggbloom2002}. Heeb descreveu como ligações entre neurônios são criadas, ou fortalecidas, sempre que reflexos cognitivos acontecem através do aprendizado. O trabalho de Heeb definiu o conceito de atualização de pesos sinápticos e deixou com seu estudo quatro pontos importantes~\citep{Eberhart19909}. (1) em uma RNA a informação é armazenada nos pesos; (2) o coeficiente de aprendizagem é proporcional ao produto dos valores de ativação do neurônio; (3) os pesos são simétricos (o peso de conexão entre A e B é o mesmo de B para A); (4) quando ocorre aprendizado os pesos são alterados.
 
-Em 1958 Frank Rosenblatt apresentou o Perceptron, o primeiro modelo de rede neural até então implementado. O Perceptron era uma rede neural simples, possuía uma camada de entrada e uma de saída. A camada de entrada recebia $N$ estímulos, cada estímulo $e_i$ era associado a um peso $p_i$, onde $0 \leq i < N$. Todos os estímulos eram multiplicados com seus respectivos pesos e somados, calculando o produto interno entre o estímulo de entrada e seu respectivo peso. Somava-se uma constante $b$ representando a inclinação da reta e, caso esse resultado fosse maior ou igual a zero, o neurônio respondia com o valor $1$, indicando que ele estava ativado. Caso contrário, respondia com zero, indicando não estar ativado. Essa função ficou conhecida como limiar ou degrau, e reproduz a conclusão do trabalho de Pitts de que a atividade de um neurônio é tudo ou nada.
+Em 1958 Frank Rosenblatt apresentou o Perceptron, o primeiro modelo de rede neural até então implementado. O Perceptron era uma rede neural simples, de um único neurônio, que recebia $N$ estímulos, cada um associado a um peso. Todos os estímulos eram multiplicados com seus respectivos pesos e somados. A esse resultado, somava-se uma constante $b$ representando a inclinação da reta e, caso esse resultado fosse maior ou igual a zero, o neurônio respondia com o valor $1$, indicando que ele estava ativado. Caso contrário, respondia com zero. Essa função ficou conhecida como limiar ou degrau, e reproduz a conclusão do trabalho de Pitts de que a atividade de um neurônio é tudo ou nada.
+
+Em 1969 Marvin Minsky e Seymour Papert publicaram o livro~\emph{Perceptrons: an introduction to computational geometry}, em que descreviam diversas provas matemáticas mostrando limitações do Perceptron até então desconhecidas. A principal foi a incapacidade do Perceptron de encontrar a solução para o predicado XOR, uma vez que ele não é~\emph{linearmente separável}.  Minsky também revisou diversas propostas de melhoramento nas RNAs, mostrando que estas também não eram capazes de um desempenho satisfatório~\citep{Yadav2015}. O livro de Minsky inaugurou um período conhecido como~\emph{AI winter} em que financiamento, interesse e publicações na área diminuíram abruptamente.
+
+A saída para os problemas descritos por Minsky foi a criação de uma rede com várias camadas. A rede foi chamada de Perceptron de Múltiplas Camadas (\emph{Multi-layer Perceptron}). O Perceptron sofreu algumas mudanças, deixou de receber e responder valores binários e passou a aceitar valores contínuos entre zero e um. A adição de camadas fez com que o número de pesos na rede aumentasse consideravalmente, e a forma de atualizá-los passou a ser o novo problema. Como os pesos da rede continham o seu conhecimento e o aprendizado dava-se através da sua atualização, esse não era um problema a ser simplesmente ignorado. Por esse motivo, a rede Perceptron de Múltiplas Camadas não foi capaz de trazer de volta o interesse a estudos na área.
+
+A resposta para o problema de atualização de pesos na rede Perceptron de Múltiplas Camadas só veio em 1986 com~\emph{Learning representations by back-propagating errors}, em que David Rumelhart, Geoffrey Hinton e Ronald Williams aplicaram o já conhecido algoritmo de retropropagação na rede Perceptron de Múltiplas Camadas, conseguindo resultados satisfatórios na representação de dados nas camadas intermediárias da rede.
+
+Em paralelo, outro trabalho importante para a história das RNAs estava sendo elaborado. Em 1980, Fukushima lança o~\emph{Neocognitron} no seu trabalho~\emph{A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position}. O Neocognitron surgiu no período de descrença nas atuais RNAs. Talvez por esse motivo, não compartilha das mesmas características do Perceptron. O Neocognitron foi inspirado no trabalho de Hubel e Wiesel de 1959, em que eles descobriram dois tipos de célular no córtex visual do cérebro chamadas de Células Simples e Células Complexas. Ambos também propuseram um modelo em cascata dessas células para o reconhecimento de padrões em imagens. 
+
+Embora o trabalho de Fukushima tenha tido boa aceitação e evoluído ao longo dos anos seguintes, outros modelos relacionados a~\emph{Aprendizado de Máquina (AM)}  se mostraram superiores às RNAs, como a~\emph{Máquina de Vetores de Suporte} (\emph{MVS}) (\emph{Support Vector Machine}). Os anos se passaram e os modelos referentes a AM foram se desenvolvendo gradativamente, sem contudo serem capazes de responder às expectativas iniciais. 
+
+(FALTA FALAR SOBRE O TRABALHO DE 2012)
+
+\section{Perceptron}
+\label{sec:RedesNeurais:Perceptron}
+
+O Perceptron é uma RNA~\emph{feedforward}, supervisionada e de apenas um neurônio. Embora obsoleta e já em desuso, essa RNA é frequentemente lembrada por sua simplicidade, importância história e por alguns conceitos utilizados até hoje.
+
+O Perceptron recebe um conjunto de $N$ estímulos $e = \{e_0, e_1, \hdots, e_{N-1}\}$ binários. Cada estímulo é associado a um peso $p = \{p_0, p_1, \hdots, p_{N-1}\}$. A entrada $I$ do Perceptron é definida como $X = \sum_{i=0}^{N-1} e_i*p_i$. É comum também representar a entrada de um Perceptron como o produto interno entre os vetores $e$ e $p$, da seguinte forma $X = e.p$. A Figura~\ref{fig:perceptronStruct} apresenta a estrutura de um Perceptron.
+
+A saída do Perceptron também é binária. Isso significa que o neurônio responde um ou zero, dependendo se está ativado ou não. Para calcular a saída, o Perceptron utiliza a função limiar, ou degrau, definida da seguinte forma, onde $b$ é a inclinação da reta no plano.
 
 \begin{equation}
-    f(x)=\left\{
-    \begin{array}{c l}	
-         1 & \text{se }p . e + b \geq 0 \\
-         0 & \text{caso contrário}
-    \end{array}\right. 
+O = \begin{cases}       
+	  1 &\text{, se } X + b \geq 0 \\
+      0 &\text{, se } X + b < 0 \\
+   \end{cases}
 \end{equation}
 
-Em 1969 Marvin Minsky e Seymour Papert publicaram o livro~\emph{Perceptrons: an introduction to computational geometry}, em que descreviam diversas provas matemáticas mostrando limitações do Perceptron até então desconhecidas. A principal foi a incapacidade do Perceptron de encontrar a solução para o predicado XOR, uma vez que ele não é~\emph{linearmente separável}.  O livro de Minsky inaugurou um período conhecido como~\emph{AI winter} em que financiamento, interesse e publicações na área terminaram abruptamente.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{images/cs}
+\caption{A estrutura de um Perceptron}
+\label{fig:perceptronStruct}
+\end{figure}
 
+A Figura~\ref{fig:perceptronXor} apresenta um exemplo da limitaçção do Perceptron com o predicado XOR. Note que a rede consegue achar uma reta que separe os predicados AND e OR. Entretanto, como XOR não é linearmente separável, o modelo falha.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{images/cs}
+\caption{Limitações do Perceptron para o predicado XOR}
+\label{fig:perceptronXor}
+\end{figure}
+
+\section{Perceptron de Múltiplas Camadas}
+
+A rede Perceptron de Múltiplas Camadas, combinada ao algoritmo de retropropagação, é uma ferramenta poderosa para reconhecimento de padrões e aproximador universal de funções. Apesar do nome, a rede não é composta \emph{exatamente} por Perceptrons, já que os neurônios dessa rede aceitam entradas e respondem valores no intervalo $[0, 1]$. O Perceptron aceita e responde apenas os valores zero e um. Além disso, tanto o nome em inglês (\emph{Multi-layer Perceptron}) quanto o nome em português levam a crer que se trata de um Perceptron com várias camadas. Na verdade a rede é composta por vários Perceptrons dispostos em diferentes camadas.
+
+Uma camada é um conjunto de neurônios. Esquematicamente, camadas de um Perceptron de Múltiplas Camadas são desenhadas paralelamente entre si. Isso permite facilitar a sua visualização. Em uma rede, a primeira camada é chamada de \emph{Camada de Entrada}. A última camada é chamada de \emph{Camada de Saída}. Qualquer camada que não seja a de entrada ou de saída é chamada de \emph{Camada Intermediária} ou, mais comumente, \emph{Camada Oculta}. Uma rede precisa ter pelo menos uma camada de entrada e uma de saída. O número de camadas ocultas varia entre zero e duas.
+
+Um neurônio da camada de entrada ou de uma camada oculta se liga a todos os neurônios da camada seguinte. Cada ligação possui um peso diferente. Cada neurônio se comporta exatamente como um Perceptron da Seção~\ref{sec:RedesNeurais:Perceptron}. Recebe os estímulos, calcula o produto de cada um com seu peso de conexão, soma-os e envia para a \emph{função de ativação}. No Perceptron, a função de ativação era a função limiar. No Perceptron de Múltiplas Camadas, qualquer função \emph{diferenciável} pode ser usada. A Figura~\ref{fig:pmc} mostra um esquema de um Perceptron de Múltiplas Camadas.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{images/cs}
+\caption{Um Perceptron de Múltiplas Camadas}
+\label{fig:pmc}
+\end{figure}
+
+\subsection{O algoritmo de retropropagação}
+\label{sec:RedesNeurais:retropropagação}
+
+O algoritmo de retropropagação do erro utiliza a diferença entre o valor real esperado, e o valor de saída da rede para atualizar os seus pesos. O algoritmo possui duas etapas, a propagação da entrada e a retropropagação do erro com atualização dos pesos.
+
+\begin{description}
+	\item[Propagação da entrada] - nessa etapa os dados de treinamento são passados para a rede. A primeira camada recebe o dado de entrada. Cada neurônio calcula sua respectiva saída através da função de ativação, e propaga sua saída para todos os neurônios da camada seguinte. Cada neurônio da camada seguinte multiplica a saída de cada neurônio da camada anterior com seu respectivo peso, soma todos esses produtos e usa esse valor como entrada para sua função de ativação. Se a camada atual for a de saída, temos a resposta da rede para aquele neurônio. Se for uma camada oculta, o processo de repete. A Figura~\ref{fig:propagacaodaentrada} ilustra esse processo.
+	\item[Retropropagação e atualização dos pesos] - uma vez que a rede chegou ao final da propagação da entrada, temos a resposta da rede para o estímulo. Subtraindo-se a resposta da rede com a resposta esperada, temos o erro de predição de cada neurônio de saída. Utiliza-se o gradiente descendente para ajustar os pesos da rede a fim de minimizar o seu erro. Uma análise mais detalhada pode ser vista na Seção~\ref{sec:RedesNeurais:retropropagação:gradientedescendente}.
+\end{description}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{images/cs}
+\caption{Exemplo de propagação da entrada em uma rede de Perceptrons de Múltiplas Camadas}
+\label{fig:propagacaodaentrada}
+\end{figure}
+
+\subsubsection{O Gradiente Descendente}
+\label{sec:RedesNeurais:retropropagação:gradientedescendente}
+
+Seja $C$ o conjuntos com $M$ camadas de uma RNA. Seja $C_1$ a camada de entrada, $C_M$ a de saída e $O_M$ o conjunto de saídas de todos os neurônios da camada de saída da rede. Dessa forma, $O_{M,1}$ é a saída do primeiro neurônio da camada de saída, $O_{M,2}$ do segundo neurônio e $O_{M,N}$ do último neurônio da camada de saída. A Equação~\ref{eq:erroTreinamentoGradiente} apresenta uma função para calcular o erro total de predição, onde $y_i$ é a saída esperada para o neurônio $i$ na camada $j$. O algoritmo de retropropagação consiste na adaptação de pesos. Sua finalidade é minimizar o erro quadrático da rede.
+
+\begin{equation}
+\label{eq:fatorAtualizacaoErro}
+E_{rr} = \frac{1}{2}\sum_{i = 0}^M \sum_{j = 0}^N  (y_i - O_{j,i})^2
+\end{equation}
