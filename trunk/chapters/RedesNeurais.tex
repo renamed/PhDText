@@ -90,9 +90,9 @@ O algoritmo de retropropagação do erro utiliza a diferença entre o valor real
 \subsubsection{O Gradiente Descendente}
 \label{sec:RedesNeurais:retropropagação:gradientedescendente}
 
-Seja $C$ o conjuntos com $M$ camadas de uma RNA. Seja $C_1$ a camada de entrada, $C_M$ a de saída e $O_M$ o conjunto de saídas de todos os neurônios da camada de saída da rede. Dessa forma, $O_{M,1}$ é a saída do primeiro neurônio da camada de saída, $O_{M,2}$ do segundo neurônio e $O_{M,N}$ do último neurônio da camada de saída. A Equação~\ref{eq:erroTreinamentoGradiente} apresenta uma função para calcular o erro total de predição, onde $y_i$ é a saída esperada para o neurônio $i$ na camada $j$. O algoritmo de retropropagação consiste na adaptação de pesos. Sua finalidade é minimizar o erro quadrático da rede.
+O \emph{Gradiente Descendente} tem como objetivo minimizar a soma quadrática dos erros de predição da rede. O erro de predição é calculado através da subtração do valor real e do valor calculado pela rede.
 
-\begin{equation}
-\label{eq:fatorAtualizacaoErro}
-E_{rr} = \frac{1}{2}\sum_{i = 0}^M \sum_{j = 0}^N  (y_i - O_{j,i})^2
-\end{equation}
+(MOSTRAR OS CÁLCULOS PARA O GRADIENTE DESCENDENTE)
+
+\section{Redes Neurais de Convolução}
+
